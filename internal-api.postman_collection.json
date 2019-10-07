@@ -1,0 +1,486 @@
+{
+	"info": {
+		"_postman_id": "22e6cbe3-74ca-49de-a5d7-0908831ed44c",
+		"name": "internal-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "alfred xmpp",
+			"item": [
+				{
+					"name": "add alfred xmpp feature",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/{{env}}/feature/region?owner=alfredq63lin@gmail.com",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"{{env}}",
+								"feature",
+								"region"
+							],
+							"query": [
+								{
+									"key": "owner",
+									"value": "alfredq63lin@gmail.com"
+								}
+							]
+						},
+						"description": "Add alfred xmpp feature based on user's region."
+					},
+					"response": []
+				},
+				{
+					"name": "deactive alfred xmpp feature",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/{{env}}/feature/region?owner=alfredq63lin@gmail.com",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"{{env}}",
+								"feature",
+								"region"
+							],
+							"query": [
+								{
+									"key": "owner",
+									"value": "alfredq63lin@gmail.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update alfred xmpp feature",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"region\": \"na\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/{{env}}/feature/region?owner=alfredq63lin@gmail.com",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"{{env}}",
+								"feature",
+								"region"
+							],
+							"query": [
+								{
+									"key": "owner",
+									"value": "alfredq63lin@gmail.com"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "about user alfred xmpp feature.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "fb69a5ba-ba16-4904-beac-c437045db8ed",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "bee30986-51c6-4c17-82f2-9f198808c846",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "device",
+			"item": [
+				{
+					"name": "encode jid",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "92d3520a-7f81-4e4f-b99e-58d17ef8fb7d",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"jid\": \"alfredq63lin@gmail.com/ivuu12ALE-L21a8c83ac0b70b\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/{{env}}/util/encode-jid",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"{{env}}",
+								"util",
+								"encode-jid"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get event list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/{{env}}/device/event?start=1263435194589&end=1563435694589&limit=50&sort=1&type=motion&rm=true&jid=alfredq63lin%40gmail.com%2Fivuu12ALE-L21a8c83ac0b70b",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"{{env}}",
+								"device",
+								"event"
+							],
+							"query": [
+								{
+									"key": "start",
+									"value": "1263435194589",
+									"description": "開始時間(必填)"
+								},
+								{
+									"key": "end",
+									"value": "1563435694589",
+									"description": "結束時間(非必填，預設為當前)"
+								},
+								{
+									"key": "limit",
+									"value": "50",
+									"description": "最多幾筆回傳(非必填，預設50筆)"
+								},
+								{
+									"key": "sort",
+									"value": "1",
+									"description": "依照\b timestamp 排序 (-1降序，1升序)"
+								},
+								{
+									"key": "type",
+									"value": "motion",
+									"description": "類別 [motion, person]，多數用逗號 , 分隔"
+								},
+								{
+									"key": "rm",
+									"value": "true",
+									"description": "是否回傳被刪除的事件資料"
+								},
+								{
+									"key": "jid",
+									"value": "alfredq63lin%40gmail.com%2Fivuu12ALE-L21a8c83ac0b70b"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get device log",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/{{env}}/device/log?jid=alfredq63lin%40gmail.com%2Fivuu12ASUS_X00TDB0C9D9272C1E6",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"{{env}}",
+								"device",
+								"log"
+							],
+							"query": [
+								{
+									"key": "jid",
+									"value": "alfredq63lin%40gmail.com%2Fivuu12ASUS_X00TDB0C9D9272C1E6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create dummy event",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/{{env}}/device/dummy-event?type=motion&jid=alfredq63lin%40gmail.com%2Fivuu12iPhone6SA24632303869",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"{{env}}",
+								"device",
+								"dummy-event"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "motion",
+									"description": "\"motion\" / \"person\"，事件類型"
+								},
+								{
+									"key": "jid",
+									"value": "alfredq63lin%40gmail.com%2Fivuu12iPhone6SA24632303869"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "mock response",
+			"item": [
+				{
+					"name": "create mock response",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"url\": \"https://rabbithole.my-alfred.com/v2.5/version\",\n    \"mockResponse\": {\n        \"status\": true,\n        \"versions\": {\n            \"android\": 2099,\n            \"default\": 2099,\n            \"froyo\": 582,\n            \"ios\": 1132\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "{{mock-host}}/mock-response",
+							"host": [
+								"{{mock-host}}"
+							],
+							"path": [
+								"mock-response"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete mock response.",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"url\": \"https://rabbithole.my-alfred.com/v2.5/version\"\n}"
+						},
+						"url": {
+							"raw": "{{mock-host}}/mock-response",
+							"host": [
+								"{{mock-host}}"
+							],
+							"path": [
+								"mock-response"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get mock response list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{mock-host}}/mock-response",
+							"host": [
+								"{{mock-host}}"
+							],
+							"path": [
+								"mock-response"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "delete user",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/{{env}}/user?owner=alfredq63lin@gmail.com",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"{{env}}",
+						"user"
+					],
+					"query": [
+						{
+							"key": "owner",
+							"value": "alfredq63lin@gmail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user feature list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/{{env}}/feature?isAndroid=true&version=2026&owner=alfredq63lin@gmail.com",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"{{env}}",
+						"feature"
+					],
+					"query": [
+						{
+							"key": "isAndroid",
+							"value": "true",
+							"description": "是否為 andorid 裝置"
+						},
+						{
+							"key": "isiOS",
+							"value": "true",
+							"description": "是否為 ios 裝置",
+							"disabled": true
+						},
+						{
+							"key": "isDesktop",
+							"value": "true",
+							"description": "是否為 desktop 裝置",
+							"disabled": true
+						},
+						{
+							"key": "version",
+							"value": "2026",
+							"description": "app 版號"
+						},
+						{
+							"key": "owner",
+							"value": "alfredq63lin@gmail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete kvtoken",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{host}}/{{env}}/user/kvtoken?kvtoken=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTE2MjkzNjYzNTQwODQ5OTgwNDExIiwiaXNzIjoiYWxmcmVkLmxhYnMiLCJpYXQiOjE1NjM5NTEyNjYsImV4cCI6MTU2Mzk1MTg2Nn0.pbtD9Bd6WzJp-Brj3pDr6Mqx6gNbg-OnVohxcS89C9Y",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"{{env}}",
+						"user",
+						"kvtoken"
+					],
+					"query": [
+						{
+							"key": "kvtoken",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTE2MjkzNjYzNTQwODQ5OTgwNDExIiwiaXNzIjoiYWxmcmVkLmxhYnMiLCJpYXQiOjE1NjM5NTEyNjYsImV4cCI6MTU2Mzk1MTg2Nn0.pbtD9Bd6WzJp-Brj3pDr6Mqx6gNbg-OnVohxcS89C9Y"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
