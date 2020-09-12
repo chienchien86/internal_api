@@ -24,7 +24,7 @@
     "moment": "^2.24.0",
     "mongodb": "^3.2.5",
     "morgan": "^1.9.1",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "npx": "^10.2.0",
     "paypal-rest-sdk": "^1.8.1",
     "qs": "^6.7.0"
